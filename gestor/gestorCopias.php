@@ -1,6 +1,6 @@
 <?php
 
-require '../conexion/conexion.php';
+require '../conexion/conexionEmail.php';
 require '../php/email_Copias.php';
 
 try {
@@ -8,7 +8,7 @@ try {
     $Copias = new Email_Copias();
     $rs = $Copias->email_Copias();
         
-    echo "Listo!";
+    echo $rs;
 
     $Copias = null;
     $rs = null;

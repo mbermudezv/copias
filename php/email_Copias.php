@@ -42,9 +42,9 @@ class Email_Copias
             $mail->Port = 587;
             $mail->IsSMTP();
             $mail->SMTPAuth = true;
-            $mail->setFrom($mail->Username,"Administrador");
+            $mail->setFrom($mail->Username,"Liceo Las Esperanzas");
             $mail->AddAddress("mauricio.bermudez.vargas@mep.go.cr");
-            $mail->Subject = "Notificacion Copias";
+            $mail->Subject = "Resultado Solicitud Copias";
 
             $mail->Body .= "<head>
                                 <meta http-equiv='Content-type' content='text/html; charset=utf-8'/>           
