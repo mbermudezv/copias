@@ -26,3 +26,14 @@ fetch('gestor/gestorCopias.php')
 }).then();
     
 }
+
+function login() 
+{
+
+  const json = [];
+  window.sessionStorage.setItem('sesion',json);
+  window.location.replace('menu.html');
+  
+  return false;
+  
+}

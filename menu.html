@@ -8,8 +8,7 @@
     <meta name="theme-color" content="#499bea" />
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="css/css_index.css">    
+    <link rel="stylesheet" href="css/css_menu.css">    
     <title>Copias</title>        
 </head>
 
@@ -23,36 +22,31 @@
 
     <div id="mainArea" class="container-fluid justify-content-center">
 
-     
-      <div class="row justify-content-center">
+        <div class="row flex-column align-items-center">
 
-        <small id="passwordHelpBlock" class="form-text text-info"> 
-          Seleccione el usuario
-        </small> 
-  
-      </div>
+            <div class="col-10 col-sm-6 col-md-6 
+            col-lg-4 col-xl-4">
 
-      <div class="row justify-content-center">
-                               
-        <select class="selectpicker"
-              id="cboUsuario" 
-              data-show-subtext="true" 
-              data-live-search="true"
-              required="required">
-              <option value=""></option>                         
-        </select>                         
-         
-      </div>
+                <nav class="nav nav-pills flex-column 
 
-      <div class="row justify-content-center" style="padding-top: 1em;"> 
-        <div class="form-group row">   
-          <div class="d-flex flex-nowrap">              
-            <button onclick="login();" id="btnIngresar" type="button" class="btn btn-dark">Ingresar</button>
-          </div>
-        </div>
-      </div>     
+                    nav-justified bg-dark">
+                    <a class="item nav-item nav-link 
+                    py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
+                    href="vistas/marcaTipoSeleccionar.html">Solicitud de Impresión de Copias</a>
+                    <a class="item nav-item nav-link 
+                    py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
+                    href="vistas/solicitudAlmuerzo.html">Solicitudes Pendientes de Revisión</a>
+                    <a class="item nav-item nav-link 
+                    py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
+                    href="#">Solicitudes Aprobadas</a>
+              
+                </nav>
 
-    </div>    
+            </div> 
+
+        </div>                 
+
+    </div>
 
     <div id="statusBar" class="d-flex flex-row justify-content-between bg-info" >
 
@@ -60,13 +54,6 @@
         <a id="linkWappcom"href="https://www.wappcom.net">wappcom.net</a>
 
     </div>
-
-<!-- <button onclick="notificar();" >Enviar Notificación</button>     -->
-<script src="js/jquery-3.5.1.min.js"></script>    
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.min.js"></script>
-<script src="js/index.js"></script>
 
 <script>       
 
@@ -82,8 +69,7 @@
                     });
         });
 
-    }
-
+    }    
 </script> 
 
 </body>
