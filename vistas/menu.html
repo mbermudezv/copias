@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="Copias">
     <meta name="theme-color" content="#499bea" />
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/css_menu.css">    
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/css_menu.css">    
     <title>Copias</title>        
 </head>
 
@@ -32,10 +32,10 @@
                     nav-justified bg-dark">
                     <a class="item nav-item nav-link 
                     py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
-                    href="vistas/marcaTipoSeleccionar.html">Solicitud de Impresión de Copias</a>
+                    href="../vistas/solicitud.html">Solicitud de Impresión de Copias</a>
                     <a class="item nav-item nav-link 
                     py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
-                    href="vistas/solicitudAlmuerzo.html">Solicitudes Pendientes de Revisión</a>
+                    href="#">Solicitudes Pendientes de Revisión</a>
                     <a class="item nav-item nav-link 
                     py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
                     href="#">Solicitudes Aprobadas</a>
@@ -55,12 +55,15 @@
 
     </div>
 
+<script src="../js/jquery-3.5.1.min.js"></script>    
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <script>       
 
     if ('serviceWorker' in navigator) {
         
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./service-worker.js')
+            navigator.serviceWorker.register('../service-worker.js')
                 .then((reg) => {
                 console.log('Registrando el Service worker.', reg);
                 }, function(err) {
