@@ -34,7 +34,7 @@ function login()
   
     }
 
-  }).then(function(data){});
+  }).then();
   
   return true;
   

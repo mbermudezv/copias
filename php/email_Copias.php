@@ -24,9 +24,9 @@ class Email_Copias
         
     }
 
-    public function email_Copias() 
+    public function email_Copias($profesor_email) 
     {
-        //Instantiation and passing `true` enables exceptions
+        
         $mail = new PHPMailer(true);
       
         try {
@@ -35,15 +35,13 @@ class Email_Copias
             $mail->Password = $this->passemail;
     
             $mail->SMTPDebug = 0;
-            //$mail->SMTPSecure = 'tls';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;;
-            //$mail->Host = "smtp.office365.com";
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Host = "mail.wappcom.net";
             $mail->Port = 587;
             $mail->IsSMTP();
             $mail->SMTPAuth = true;
             $mail->setFrom($mail->Username,"Liceo Las Esperanzas");
-            $mail->AddAddress("mauricio.bermudez.vargas@mep.go.cr");
+            $mail->AddAddress($profesor_email);
             $mail->Subject = "Resultado Solicitud Copias";
 
             $mail->Body .= "<head>
@@ -56,7 +54,7 @@ class Email_Copias
                                     <tbody>
                                         <tr style='width:50%'>
                                         <th scope='row'>Solicitante</th>
-                                        <td> Mauricio Bermudez Vargas </td>
+                                        <td> Profesor Apellido 1 Apellido 2 </td>
                                         </tr>
                                     </tbody> 
                                 </table> 
@@ -71,7 +69,7 @@ class Email_Copias
             return $th;
         }
         
-        return "notificacion enviada";  
+        return "notificacion enviada a " .$profesor_email;  
     }
     
 }
