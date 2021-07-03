@@ -1,22 +1,61 @@
+const myMSALObj = new msal.PublicClientApplication(msalConfig);
+
 window.onload = function() 
 {
-    
-  cargaComboUsuario();
-   
+
+  loadPage();     
   return true;
+
 }
 
-function login() 
-{
-
-  let cboUsuario = document.getElementById("cboUsuario");
+function loadPage() {
   
-  let profesor_Id = [...cboUsuario.options]
-                  .filter((x) => x.selected)
-                  .map((x)=>x.value);   
+  const currentAccounts = myMSALObj.getAllAccounts();
 
-  fetch('gestor/gestorUsuario_x_Id.php?'
-    + new URLSearchParams({id: profesor_Id}))
+  if (currentAccounts === null) {
+      return;
+
+  } else if (currentAccounts.length > 1) {
+
+      // Add choose account code here
+      console.warn("Multiple accounts detected.");
+
+  } else if (currentAccounts.length === 1) {
+
+      let username = currentAccounts[0].username;
+      //console.log(username);
+      login(username); 
+           
+  }
+
+}
+
+function handleResponse(resp) {
+
+  if (resp !== null) {
+  
+      let username = resp.account.username;
+      login(username);           
+      
+  } else {
+
+      loadPage();
+
+  }
+
+}
+
+function signIn() {
+  myMSALObj.loginPopup(loginRequest).then(handleResponse).catch(error => {
+      console.error(error);
+  });
+}
+
+function login(username) 
+{
+  
+  fetch('gestor/gestorUsuario_x_email.php?'
+    + new URLSearchParams({email: username}))
   .then(function(response) 
   {
           
@@ -38,42 +77,4 @@ function login()
   
   return true;
   
-}
-
-function cargaComboUsuario() 
-{
-  
-  fetch('gestor/gestorUsuario.php')
-  .then(function(response) 
-  {
-          
-    if(response.ok) 
-    {
-
-      response.json().then(function(data) 
-      {
-        
-        //console.log(data);
-              
-        data.forEach(element => 
-          {
-
-            let cboSoftware = document.getElementById("cboUsuario"); 
-            let opt = document.createElement("option");
-            opt.value = element.profesor_Id;
-            opt.innerHTML = element.profesor_nombre + ' ' + 
-                            element.profesor_primer_apellido + ' ' +
-                            element.profesor_segundo_apellido;        
-            cboSoftware.append(opt);            
-
-          });
-          
-          $("#cboUsuario").selectpicker("refresh");
-    
-      });
-  
-    }
-
-  }).then(function(data){});
-
 }

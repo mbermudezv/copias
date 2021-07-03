@@ -89,6 +89,9 @@ a:active {
   .item, #tituloMarca {
     font-size: 1.4rem;
   }
+  #btnIngresar {
+    font-size: 1.4rem;
+  }
   #statusBar {
     font-size: 1.1rem;
   }
@@ -96,6 +99,9 @@ a:active {
 
 @media (min-width: 768px) {
   .item, #tituloMarca {
+    font-size: 1.4rem;
+  }
+  #btnIngresar {
     font-size: 1.4rem;
   }
   #statusBar {
@@ -107,6 +113,9 @@ a:active {
   .item, #tituloMarca {
     font-size: 1.2rem;
   }
+  #btnIngresar {
+    font-size: 1.1rem;
+  }
   #statusBar {
     font-size: 1.2rem;
   }
@@ -115,6 +124,9 @@ a:active {
 @media (min-width: 1200px) {
   .item, #tituloMarca {
     font-size: 1.5rem;
+  }
+  #btnIngresar {
+    font-size: 1.1rem;
   }
   #statusBar {
     font-size: 1.5rem;
