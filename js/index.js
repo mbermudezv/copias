@@ -19,6 +19,7 @@ function loadPage() {
 
       // Add choose account code here
       console.warn("Multiple accounts detected.");
+      console.log(currentAccounts);
 
   } else if (currentAccounts.length === 1) {
 
@@ -35,6 +36,7 @@ function handleResponse(resp) {
   if (resp !== null) {
   
       let username = resp.account.username;
+      //console.log(username);
       login(username);           
       
   } else {
@@ -54,8 +56,29 @@ function signIn() {
 function login(username) 
 {
   
+  let btnIngresar = document.getElementById("btnIngresar");
+  btnIngresar.disabled = true;
+  let contenedorError = document.getElementById("contenedorError");
+  btnIngresar.innerHTML = '<span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+  let spinner = document.getElementById("spinner");
+  
+  if (typeof username === 'undefined') {
+
+    spinner.style.visibility = 'hidden';
+    btnIngresar.innerText="Ingresar";
+    btnIngresar.disabled = false;
+    contenedorError.innerHTML='<div class="alert alert-danger">' +
+                            '<strong>Error! </strong>' +
+                                'al conectar con el servidor' +
+                            '</div>';
+
+    return false;                               
+ }
+
+  try {
+
   fetch('gestor/gestorUsuario_x_email.php?'
-    + new URLSearchParams({email: username}))
+  + new URLSearchParams({email: username}))
   .then(function(response) 
   {
           
@@ -66,15 +89,60 @@ function login(username)
       {
         
         //console.log(data);
-        window.sessionStorage.setItem('sesion', JSON.stringify(data));
-        window.location.href = 'vistas/menu.html';
-                     
-      });
-  
-    }
+       
+        if (Object.keys(data).length>0){ 
+                        
+          window.sessionStorage.setItem('sesion', JSON.stringify(data));
+          window.location.replace('vistas/menu.html');
 
-  }).then();
-  
+        } else {
+
+              spinner.style.visibility = 'hidden';
+              btnIngresar.innerText="Ingresar";
+              btnIngresar.disabled = false;
+              contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                      '<strong>Error! </strong>' +
+                                          'No se encontró el usuario' +
+                                      '</div>';                        
+        }
+
+
+      }).catch(function(error) 
+                {
+                  spinner.style.visibility = 'hidden';
+                  btnIngresar.innerText="Ingresar";
+                  btnIngresar.disabled = false;
+                  contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                          '<strong>Error! </strong>' +
+                                          'No hay respuesta del servidor MEP. Verifique su conexión de internet ' +
+                                          '</div>';              
+                });              
+    }
+  }).then().catch(function(error) 
+                    {
+                      spinner.style.visibility = 'hidden';
+                      btnIngresar.innerText="Ingresar";
+                      btnIngresar.disabled = false;
+                      contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                              '<strong>Error! </strong>' +
+                                                  'Hubo un problema con la petición Fetch de login: ' + error.message +
+                                              '</div>';        
+                    });
+
+
+  } catch (error) {
+
+    spinner.style.visibility = 'hidden';
+    btnIngresar.innerText="Ingresar";
+    btnIngresar.disabled = false;
+    contenedorError.innerHTML='<div class="alert alert-danger">' +
+                            '<strong>Error! </strong>' +
+                                'Hubo un problema: ' + error.message +
+                            '</div>';    
+    
+  }
+
+
   return true;
   
 }

@@ -20,7 +20,7 @@ class SelectProfesorEmail
 
         if ($this->pdo != null) {		
 			
-            $consultaSQL = "SELECT * FROM profesor WHERE profesor_email =" . $email; 
+            $consultaSQL = "SELECT * FROM profesor WHERE profesor_email = '$email'"; 
                             
 			$sql = $this->pdo->query($consultaSQL);
 

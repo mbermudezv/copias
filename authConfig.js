@@ -2,9 +2,9 @@
 
         const msalConfig = {
             auth: {
-              clientId: "",             
+              clientId: "2d9e9cb2-50f6-49d7-931f-05952571b493",             
               authority: "https://login.microsoftonline.com/mep.go.cr",
-              redirectUri: ""
+              redirectUri: "http://localhost/copias/index.html"
             },
             cache: {
               cacheLocation: "sessionStorage", // This configures where your cache will be stored
