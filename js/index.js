@@ -13,6 +13,7 @@ function loadPage() {
   const currentAccounts = myMSALObj.getAllAccounts();
 
   if (currentAccounts === null) {
+      //console.log("hola null accounts");
       return;
 
   } else if (currentAccounts.length > 1) {
@@ -24,7 +25,7 @@ function loadPage() {
   } else if (currentAccounts.length === 1) {
 
       let username = currentAccounts[0].username;
-      //console.log(username);
+      console.log(username);
       login(username); 
            
   }
@@ -36,7 +37,7 @@ function handleResponse(resp) {
   if (resp !== null) {
   
       let username = resp.account.username;
-      //console.log(username);
+      console.log(username);
       login(username);           
       
   } else {
@@ -48,9 +49,11 @@ function handleResponse(resp) {
 }
 
 function signIn() {
+  
   myMSALObj.loginPopup(loginRequest).then(handleResponse).catch(error => {
       console.error(error);
   });
+
 }
 
 function login(username) 
@@ -77,7 +80,7 @@ function login(username)
 
   try {
 
-  fetch('gestor/gestorUsuario_x_email.php?'
+  fetch('./gestor/gestorUsuario_x_email.php?'
   + new URLSearchParams({email: username}))
   .then(function(response) 
   {
@@ -93,7 +96,7 @@ function login(username)
         if (Object.keys(data).length>0){ 
                         
           window.sessionStorage.setItem('sesion', JSON.stringify(data));
-          window.location.replace('vistas/menu.html');
+          window.location.replace('./vistas/menu.html');
 
         } else {
 
