@@ -8,12 +8,64 @@
     <meta name="theme-color" content="#499bea" />
     <link rel="manifest" href="../manifest.json">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <title>Copias</title>        
+    <link rel="stylesheet" href="../css/css_solicitud.css">
+    <title>Solicitud</title>        
 </head>
 
 <body>
+
+    <div id="encabezadoBar" class="d-flex flex-row justify-content-around bg-info
+        py-3 py-sm-4 py-md-4 py-lg-3
+        py-xl-2">
+        <span id="tituloMarca">ServiCopias</span>
+    </div>
     
-<button onclick="notificar();" >Enviar Notificación</button>    
+    <a id="atras" href="menu.html">Volver Atrás</a>
+
+    <div id="mainArea" class="container-fluid justify-content-center">
+
+        
+
+        <div class="form-group row flex-column align-items-center"> 
+
+            <div class="col-10 col-sm-6 col-md-6 
+                        col-lg-4 col-xl-4 text-center">
+
+                <span id="nombre"></span>
+
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center"> 
+
+            <div class="form-group row">   
+
+                <div class="d-flex flex-nowrap"> 
+
+                    <button onclick="notificar();" 
+                            id="btnNotificar" 
+                            type="button" 
+                            class="btn btn-dark"
+                    >
+                    Enviar Solicitud
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>   
+
+    </div>
+
+    <div id="statusBar" class="d-flex flex-row justify-content-between bg-info" >
+
+        <a id="linkHogar" href="https://www.lasesperanzas.ed.cr">lasesperanzas.ed.cr</a>
+        <a id="linkWappcom"href="https://www.wappcom.net">wappcom.net</a>
+
+    </div>
+
 
 <script src="../js/solicitud.js"></script>
 

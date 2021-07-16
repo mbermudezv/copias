@@ -20,25 +20,46 @@
         <span id="tituloMarca">ServiCopias</span>
     </div>
 
+    <a id="atras" href="../index.html">Volver al Inicio</a>
+
     <div id="mainArea" class="container-fluid justify-content-center">
+
+        <div class="form-group row flex-column align-items-center"> 
+
+            <div class="col-10 col-sm-6 col-md-6 
+                        col-lg-4 col-xl-4 text-center">
+
+                <span id="nombre"></span>
+
+            </div>
+
+        </div>
 
         <div class="row flex-column align-items-center">
 
             <div class="col-10 col-sm-6 col-md-6 
-            col-lg-4 col-xl-4">
+                        col-lg-4 col-xl-4">
 
                 <nav class="nav nav-pills flex-column 
+                            nav-justified bg-dark">
+                    
+                    <a class="item nav-item nav-link 
+                        py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
+                        href="../vistas/solicitud.html">
+                        Solicitud de Impresión de Copias
+                    </a>
 
-                    nav-justified bg-dark">
                     <a class="item nav-item nav-link 
-                    py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
-                    href="../vistas/solicitud.html">Solicitud de Impresión de Copias</a>
+                        py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
+                        href="#">
+                        Solicitudes Pendientes de Revisión
+                    </a>
+
                     <a class="item nav-item nav-link 
-                    py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
-                    href="#">Solicitudes Pendientes de Revisión</a>
-                    <a class="item nav-item nav-link 
-                    py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
-                    href="#">Solicitudes Aprobadas</a>
+                        py-3 py-sm-4 py-md-4 py-lg-4 py-xl-3" 
+                        href="#">
+                        Solicitudes Aprobadas
+                    </a>
               
                 </nav>
 
@@ -58,6 +79,8 @@
 <script src="../js/jquery-3.5.1.min.js"></script>    
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/menu.js"></script>
+
 <script>       
 
     if ('serviceWorker' in navigator) {

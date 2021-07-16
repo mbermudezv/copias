@@ -62,14 +62,6 @@ a:active {
   text-decoration: underline;
 }
 
-.item {
-  font-weight: bold;
-  font-family: "Courier New", Courier, monospace;
-  border-radius: 5px;
-  border-style: groove;
-  border-bottom: 0.5vw solid #707070;
-}
-
 #tituloMarca {
   font-family: "Lucida Console", Monaco, monospace;
   font-weight: bold;
@@ -79,10 +71,6 @@ a:active {
   font-family: "Lucida Console", Monaco, monospace;
   font-weight: bold;
   font-size: larger;
-}
-
-#statusBar {
-  font-family: "Lucida Console", Monaco, monospace;
 }
 
 #linkHogar, #linkWappcom {
@@ -95,6 +83,9 @@ a:active {
   .item, #tituloMarca {
     font-size: 1.4rem;
   }
+  #btnIngresar {
+    font-size: 1.4rem;
+  }
   #statusBar {
     font-size: 1.1rem;
   }
@@ -102,6 +93,9 @@ a:active {
 
 @media (min-width: 768px) {
   .item, #tituloMarca {
+    font-size: 1.4rem;
+  }
+  #btnIngresar {
     font-size: 1.4rem;
   }
   #statusBar {
@@ -113,6 +107,9 @@ a:active {
   .item, #tituloMarca {
     font-size: 1.2rem;
   }
+  #btnIngresar {
+    font-size: 1.1rem;
+  }
   #statusBar {
     font-size: 1.2rem;
   }
@@ -122,8 +119,11 @@ a:active {
   .item, #tituloMarca {
     font-size: 1.5rem;
   }
+  #btnIngresar {
+    font-size: 1.1rem;
+  }
   #statusBar {
     font-size: 1.5rem;
   }
 }
-/*# sourceMappingURL=css_menu.css.map */
+/*# sourceMappingURL=css_solicitud.css.map */
