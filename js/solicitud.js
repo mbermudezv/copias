@@ -21,6 +21,42 @@ window.onload = function()
     return true;
 }
 
+function guardar() {
+  
+  let jsonData = [];
+  let profesor = 0;
+
+  jsonData = JSON.parse(window.sessionStorage.getItem('sesion'));
+
+  profesor = jsonData[0]["profesor_Id"];
+
+  let btnIngresar = document.getElementById("btnGuardar");
+  btnIngresar.disabled = true;
+  btnIngresar.innerHTML = '<span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+  let spinner = document.getElementById("spinner");
+
+  //notificar();
+
+  spinner.style.visibility = 'hidden';
+  btnIngresar.innerText="Enviar Solicitud";
+
+  let tituloMensaje = document.getElementById("tituloMensajeGuardar");
+  tituloMensaje.innerText='';
+
+  let contenedorError = document.getElementById("mensajeModalGuardar");
+  contenedorError.innerText='';
+
+  let mensajeModalParrafo = document.getElementById("mensajeModalParrafoGuardar");
+  mensajeModalParrafo.innerText='Se le enviará una notificación a su correo institucional';
+
+  tituloMensaje.innerText = 'Ok!';
+  contenedorError.innerText ='Se registró la solicitud!';      
+  
+  $('#modalMensajeGuardar').modal('show');  
+
+  return true;
+}
+
 function notificar() {
 
      
