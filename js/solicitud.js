@@ -24,16 +24,101 @@ window.onload = function()
 function guardar() {
   
   let jsonData = [];
-  let profesor = 0;
+  let profesor_Id = 0;
 
   jsonData = JSON.parse(window.sessionStorage.getItem('sesion'));
-
-  profesor = jsonData[0]["profesor_Id"];
-
+  
+  profesor_Id = jsonData[0]["profesor_Id"];
+  
   let btnIngresar = document.getElementById("btnGuardar");
   btnIngresar.disabled = true;
   btnIngresar.innerHTML = '<span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
   let spinner = document.getElementById("spinner");
+
+  const formData = new FormData();
+  formData.append('profesor_Id', profesor_Id);
+
+  fetch('../gestor/gestorSolicitud.php', 
+  {
+    method: 'POST', 
+    body: formData,     
+    }).then(function(response) {
+
+    if(response.ok) {
+
+      response.text().then(function(data) 
+      {  
+          console.log(data);
+                        
+      }).catch(function(error) {
+
+          spinner.style.visibility = 'hidden';
+          btnIngresar.innerText="Enviar Solicitud";
+          btnIngresar.disabled = false;
+
+          let tituloMensaje = document.getElementById("tituloMensaje");
+          tituloMensaje.innerText='';
+      
+          let contenedorError = document.getElementById("mensajeModal");
+          contenedorError.innerText='';
+
+          let mensajeModalParrafo = document.getElementById("mensajeModalParrafo");
+          mensajeModalParrafo.innerText='';
+
+          tituloMensaje.innerText = 'Hubo un inconveniente!';
+          contenedorError.innerText ='Intente de nuevo!';
+          mensajeModalParrafo.innerText ='No hubo respuesta del servidor MEP.';
+        
+          $('#modalMensaje').modal('show');
+
+      })
+
+    } else {
+
+            spinner.style.visibility = 'hidden';
+            btnIngresar.innerText="Enviar Solicitud";
+            btnIngresar.disabled = false;
+
+            let tituloMensaje = document.getElementById("tituloMensaje");
+            tituloMensaje.innerText='';
+        
+            let contenedorError = document.getElementById("mensajeModal");
+            contenedorError.innerText='';
+
+            let mensajeModalParrafo = document.getElementById("mensajeModalParrafo");
+            mensajeModalParrafo.innerText='';
+
+            tituloMensaje.innerText = 'Hubo un inconveniente!';
+            contenedorError.innerText ='No hay respuesta del servidor MEP!';
+            mensajeModalParrafo.innerText ='Verifique su conexión de internet.';  
+          
+            $('#modalMensaje').modal('show');
+    
+    }
+
+    })
+    .catch(function(error) {
+
+          spinner.style.visibility = 'hidden';
+          btnIngresar.innerText="Enviar Solicitud";
+          btnIngresar.disabled = false;
+
+          let tituloMensaje = document.getElementById("tituloMensaje");
+          tituloMensaje.innerText='';
+      
+          let contenedorError = document.getElementById("mensajeModal");
+          contenedorError.innerText='';
+
+          let mensajeModalParrafo = document.getElementById("mensajeModalParrafo");
+          mensajeModalParrafo.innerText='';
+
+          tituloMensaje.innerText = 'Hubo un inconveniente!';
+          contenedorError.innerText ='Error al guardar la información!';
+          mensajeModalParrafo.innerText = error.message;
+          
+          $('#modalMensaje').modal('show');
+       
+    }).then();
 
   //notificar();
 

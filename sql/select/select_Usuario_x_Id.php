@@ -28,6 +28,7 @@ class SelectProfesorId
 
 			while ($row = $sql->fetch(\PDO::FETCH_ASSOC)) {
 					$rs[] = [
+                        'profesor_Id' => $row['profesor_Id'],
 						'profesor_nombre' => $row['profesor_nombre'],
                         'profesor_primer_apellido' => $row['profesor_primer_apellido'],                        
                         'profesor_segundo_apellido' => $row['profesor_segundo_apellido'],
