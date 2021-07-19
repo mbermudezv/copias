@@ -42,7 +42,7 @@ class Email_Copias
             $mail->SMTPAuth = true;
             $mail->setFrom($mail->Username,"Liceo Las Esperanzas");
             $mail->AddAddress($profesor_email);
-            $mail->Subject = "Resultado Solicitud Copias";
+            $mail->Subject = "Solicitud de Copias";
 
             $mail->Body .= "<head>
                                 <meta http-equiv='Content-type' content='text/html; charset=utf-8'/>           
@@ -74,7 +74,7 @@ class Email_Copias
                                         }
                                 </style>
                             </head>";
-            $mail->Body .= "<img src=\"https://wappcom.net/copias/img/email_encabezado.png\" alt=\"\" width=\"80%\" height=\"250px\" />";                            
+            $mail->Body .= "<img src=\"https://wappcom.net/copias/img/mail_EncabezadoCopias.png\" alt=\"\" width=\"100%\" height=\"100%\" />";
             $mail->Body .=  "<h3> Estimado Funcionario (a) </h3>";	
             $mail->Body .=  "<p> <b> El Sistema de Control de Copias </b> le informa:</p>";    
             $mail->Body .=  "<div id='container'> 
@@ -88,7 +88,7 @@ class Email_Copias
                                 </table> 
                             </div>
                             <br/>";                   
-            $mail->Body .= "<img src=\"https://wappcom.net/copias/img/email_piePagina.png\" alt=\"\" width=\"80%\" height=\"250px\" />";
+            $mail->Body .= "<img src=\"https://wappcom.net/copias/img/email_PieCopias.png\" alt=\"\" width=\"100%\" height=\"100%\" />";
             $mail->IsHTML(true);
             $mail->Send();
 

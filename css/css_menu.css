@@ -81,6 +81,12 @@ a:active {
   font-size: larger;
 }
 
+#atras {
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+}
+
 #statusBar {
   font-family: "Lucida Console", Monaco, monospace;
 }
