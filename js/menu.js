@@ -16,7 +16,55 @@ window.onload = function()
                             jsonData[0]["profesor_primer_apellido"] + " " + 
                             jsonData[0]["profesor_segundo_apellido"];
                 
-    } 
+    }
+    
+    muestraCantidadSolicitudes();
    
     return true;
 }
+
+function muestraCantidadSolicitudes() 
+{
+  
+      fetch('../gestor/gestorCantidadSolicitud.php').then(function(response) 
+      {
+  
+        if(response.ok) {
+    
+          response.json().then(function(data) {
+                  
+           let solicitudes = document.getElementById("solicitudes");
+           solicitudes.innerText= data[0].cantidad;         
+             
+            }).catch(function(error) {
+    
+                      let contenedorError = document.getElementById("mensaje");
+                      contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                              '<strong>Error! </strong>' +
+                                              'No hay respuesta del servidor MEP. Verifique su conexión de internet ' + error.message +
+                                              '</div>';
+                });              
+    
+    
+        } else {
+                
+                let contenedorError = document.getElementById("mensaje");           
+                contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                        '<strong>Error! </strong>' +
+                                            'No se pudo conectar con el servidor. Intente de nuevo.' +
+                                        '</div>';
+        }
+    
+      }).catch(function(error) {
+        
+              let contenedorError = document.getElementById("mensaje");         
+              contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                      '<strong>Error! </strong>' +
+                                          'Hubo un problema al conectar con el servidor: ' + error.message +
+                                      '</div>';        
+      }).then();
+    
+      return true;
+    
+    }
+  

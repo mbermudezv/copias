@@ -24,7 +24,11 @@ class Email_Copias
         
     }
 
-    public function email_Copias($profesor_email, $profesor_nombre) 
+    public function email_Copias($profesor_email, 
+                                $profesor_nombre,
+                                $solicitud_cantidad_carta,
+                                $solicitud_cantidad_oficio,
+                                $solicitud_cantidad_estudiantes) 
     {
         
         $mail = new PHPMailer(true);
@@ -81,9 +85,26 @@ class Email_Copias
                                 <table style='width:100%'>
                                     <tbody>
                                         <tr style='width:50%'>
-                                        <th scope='row'>Solicitante</th>
-                                        <td> ".$profesor_nombre." </td>
+                                            <th scope='row'>Solicitante</th>
+                                            <td> ".$profesor_nombre." </td>
                                         </tr>
+                                        <tr style='width:50%'>
+                                            <th scope='row'>Estado de la solicitud</th>
+                                            <td> <strong> En proceso de aprobaci&oacuten </strong> </td>
+                                        </tr>
+                                        <tr style='width:50%'>
+                                            <th scope='row'>Cantidad de Estudiantes</th>
+                                            <td> ".$solicitud_cantidad_estudiantes." </td>
+                                        </tr>
+                                        <tr style='width:50%'>
+                                            <th scope='row'>Cantidad de Copias tama&ntilde;o Carta</th>
+                                            <td> ".$solicitud_cantidad_carta." </td>
+                                        </tr>
+                                        <tr style='width:50%'>
+                                            <th scope='row'>Cantidad de Copias tama&ntilde;o Oficio</th>
+                                            <td> ".$solicitud_cantidad_oficio." </td>
+                                        </tr>
+
                                     </tbody> 
                                 </table> 
                             </div>
