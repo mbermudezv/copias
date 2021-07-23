@@ -1,24 +1,9 @@
 window.onload = function() 
-{
- 
-    let userData = [];
-    userData = window.sessionStorage.getItem('sesion');
-    
-    if (userData && userData.length>0) {
+{ 
+  
+  selectPendienteGestor();
 
-        let nombre = document.getElementById("nombre");
-        
-        let jsonData = [];
-
-        jsonData = JSON.parse(userData);
-        
-        nombre.innerText =  jsonData[0]["profesor_nombre"] + " " + 
-                            jsonData[0]["profesor_primer_apellido"] + " " + 
-                            jsonData[0]["profesor_segundo_apellido"];
-                
-    } 
-   
-    return true;
+  return true;
 }
 
 function guardar() {
@@ -238,4 +223,104 @@ function notificar() {
     
     }).then();
         
+}
+
+function selectPendienteGestor() 
+{
+           
+  $('#lista').empty(); 
+
+  fetch('../gestor/gestorSolicitud_x_Aprobar.php')
+  .then(function(response) {
+
+      if(response.ok) {
+          
+          response.json().then(
+              function(data) 
+              {
+                  let contenedorError = document.getElementById("mensaje");
+                  contenedorError.innerHTML='';
+                                                  
+                  //console.log(data);
+                  if (Object.keys(data).length>0) {
+
+                      cargaDatosPantalla(data);
+                      
+                  } else {
+
+                      let contenedorError = document.getElementById("mensaje");
+                      contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                              '<strong>Error! </strong>' +
+                                              'No se encontraron datos </div>';                                                        
+                  
+                  }
+          
+              }).catch(function(error) {
+
+                  let contenedorError = document.getElementById("mensaje");
+                  contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                          '<strong>Error! </strong>' +
+                                          'No hay respuesta del servidor . Verifique su conexión de internet ' + error.message +
+                                          '</div>';
+              });              
+
+      } else {
+              
+              let contenedorError = document.getElementById("mensaje");           
+              contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                      '<strong>Error! </strong>' +
+                                          'No se pudo conectar con el servidor. Intente de nuevo.' +
+                                      '</div>';
+      }
+
+  }).catch(function(error) {
+      
+          let contenedorError = document.getElementById("mensaje");         
+          contenedorError.innerHTML='<div class="alert alert-danger">' +
+                                  '<strong>Error! </strong>' +
+                                      'Hubo un problema al conectar con el servidor: ' + error.message +
+                                  '</div>';        
+  }).then();
+   
+  return true;
+
+}
+
+function cargaDatosPantalla(data) 
+{    
+        
+  data.forEach(obj => {       
+
+      let fila = document.createElement('div');
+      fila.id = "fila";
+      fila.className = "form-group row justify-content-center";      
+      
+      let colNombre = document.createElement('div');
+      colNombre.id = "profesor";
+      colNombre.className = "col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3";
+      let createATextNombre = document.createTextNode(obj.profesor);
+      colNombre.appendChild(createATextNombre);
+
+      let colCantidad = document.createElement('div');
+      colCantidad.id = "cantidad";
+      colCantidad.className = "col-1 col-sm-2 col-md-2 col-lg-1 col-xl-1";
+      let createATextCantidad = document.createTextNode(obj.solicitud_cantidad_carta + obj.solicitud_cantidad_oficio);
+      colCantidad.appendChild(createATextCantidad);
+
+      let colMonto = document.createElement('div');
+      colMonto.id = "cantidad";
+      colMonto.className = "col-1 col-sm-2 col-md-2 col-lg-1 col-xl-1";
+      let createATextMonto = document.createTextNode(obj.solicitud_cantidad_carta + obj.solicitud_cantidad_oficio);
+      colMonto.appendChild(createATextMonto);
+     
+      fila.appendChild(colNombre);
+      fila.appendChild(colCantidad);
+      fila.appendChild(colMonto);
+
+      document.getElementById('lista').appendChild(fila);        
+
+  }); 
+
+  return true;
+
 }

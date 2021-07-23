@@ -22,89 +22,59 @@
     
     <a id="atras" href="menu.html">Volver Atrás</a>
 
-    <div id="mainArea" class="container-fluid justify-content-center">
-        
-        <div class="form-group row flex-column align-items-center"> 
+    <div id="mainArea" class="container-fluid">
 
-            <div class="col-10 col-sm-6 col-md-6 
-                        col-lg-4 col-xl-4 text-center">
+        <div class="container-sm container-md container-lg">
+            <div class="row justify-content-center"> 
+              <div id="mensaje" class="form-group row"></div>
+            </div>
+        </div>
+           
+        <div class="form-group row justify-content-center">
 
-                <span id="nombre"></span>
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" 
+                >
+            </div>
 
+            <div class="col-1 col-sm-2 col-md-2 col-lg-1 col-xl-1" 
+                >Cantidad
+            </div>
+
+            <div class="col-1 col-sm-2 col-md-2 col-lg-1 col-xl-1" 
+                >Monto
             </div>
 
         </div>
 
-        <div class="form-group row flex-column align-items-center">
+        <div class="form-group" id="lista">              
+            
+            <div class="form-group row justify-content-center" id="fila">
 
-            <div class="col-6 col-sm-4 col-md-4 
-                        col-lg-2 col-xl-2">
-
-                <label for="cantidad" class="col-form-label"
-                    >Cantidad de Estudiantes:
-                </label>
-
-                <input class="form-control" 
-                        id="solicitud_cantidad_estudiantes" 
-                        type="number" value="0"/>                   
-
-            </div>
-
-        </div>
-
-        <div class="form-group row flex-column align-items-center">
-
-            <div class="col-6 col-sm-4 col-md-4 
-                        col-lg-2 col-xl-2">
-
-                <label for="cantidad" class="col-form-label"
-                    >Cantidad de Copias Tamaño Carta:
-                </label>
-
-                <input class="form-control" 
-                        id="solicitud_cantidad_carta" 
-                        type="number" value="0"/>                   
-
-            </div>
-        
-        </div>
-
-        <div class="form-group row flex-column align-items-center">
-
-            <div class="col-6 col-sm-4 col-md-4 
-                        col-lg-2 col-xl-2">
-
-                <label for="cantidad" class="col-form-label"
-                    >Cantidad de Copias Tamaño Oficio:
-                </label>
-
-                <input class="form-control" 
-                        id="solicitud_cantidad_oficio" 
-                        type="number" value="0"/>                   
-
-            </div>
-
-        </div>
-
-        <div class="row justify-content-center"> 
-
-            <div class="form-group row">   
-
-                <div class="d-flex flex-nowrap"> 
-
-                    <button onclick="guardar()" 
-                            id="btnGuardar" 
-                            type="button" 
-                            class="btn btn-dark"
-                    >
-                    Enviar Solicitud
-                    </button>
-
+                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" 
+                    id="profesor">Nombre Profesor
                 </div>
 
-            </div>
+                <div class="col-1 col-sm-2 col-md-2 col-lg-1 col-xl-1" 
+                    id="cantidad">1000
+                </div>
 
-        </div>   
+                <div class="col-1 col-sm-2 col-md-2 col-lg-1 col-xl-1" 
+                    id="monto">3,000
+                </div>
+
+                <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1" 
+                    id="aceptar">
+                    <button class="btn btn-info">Aceptar</button>
+                </div>
+
+                <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1" 
+                    id="rechazar">
+                    <button class="btn btn-danger">Rechazar</button>
+                </div>
+
+            </div> 
+                       
+        </div>
 
     </div>
 
@@ -189,7 +159,7 @@
 <script src="../js/jquery-3.5.1.min.js"></script>    
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-<script src="../js/solicitud.js"></script>
+<script src="../js/pendiente.js"></script>
 
 <script>       
 
