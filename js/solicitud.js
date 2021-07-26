@@ -103,8 +103,8 @@ function guardar() {
 
           response.text().then(function(data) 
           {  
-              console.log(data);
-              //notificar();
+              //console.log(data);
+              notificar();
                             
           }).catch(function(error) {
 
@@ -213,7 +213,10 @@ function notificar() {
 
     fetch('../gestor/gestorCopias.php?'
           + new URLSearchParams({profesor_email: profesor_email, 
-                                profesor_nombre: profesor_nombre}))
+                                profesor_nombre: profesor_nombre,
+                                solicitud_cantidad_estudiantes: solicitud_cantidad_estudiantes,
+                                solicitud_cantidad_carta: solicitud_cantidad_carta,
+                                solicitud_cantidad_oficio: solicitud_cantidad_oficio}))
     .then(function(response) {
     
       if(response.ok) {

@@ -7,9 +7,15 @@ try {
 
     $profesor_email = $_GET['profesor_email'];
     $profesor_nombre = $_GET['profesor_nombre'];
+    $solicitud_cantidad_carta = $_GET['solicitud_cantidad_carta'];
+    $solicitud_cantidad_oficio = $_GET['solicitud_cantidad_oficio'];
+    $solicitud_cantidad_estudiantes = $_GET['solicitud_cantidad_estudiantes'];
 
     $Copias = new Email_Copias();
-    $rs = $Copias->email_Copias($profesor_email, $profesor_nombre);
+    $rs = $Copias->email_Copias($profesor_email, $profesor_nombre,
+                                $solicitud_cantidad_carta,
+                                $solicitud_cantidad_oficio,
+                                $solicitud_cantidad_estudiantes);
         
     echo $rs;
 

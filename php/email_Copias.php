@@ -78,7 +78,7 @@ class Email_Copias
                                         }
                                 </style>
                             </head>";
-            $mail->Body .= "<img src=\"https://wappcom.net/copias/img/mail_EncabezadoCopias.png\" alt=\"\" width=\"100%\" height=\"100%\" />";
+            $mail->Body .= "<img src=\"https://wappcom.net/servicopias/img/mail_EncabezadoCopias.png\" alt=\"\" width=\"100%\" height=\"100%\" />";
             $mail->Body .=  "<h3> Estimado Funcionario (a) </h3>";	
             $mail->Body .=  "<p> <b> El Sistema de Control de Copias </b> le informa:</p>";    
             $mail->Body .=  "<div id='container'> 
@@ -109,7 +109,7 @@ class Email_Copias
                                 </table> 
                             </div>
                             <br/>";                   
-            $mail->Body .= "<img src=\"https://wappcom.net/copias/img/email_PieCopias.png\" alt=\"\" width=\"100%\" height=\"100%\" />";
+            $mail->Body .= "<img src=\"https://wappcom.net/servicopias/img/email_PieCopias.png\" alt=\"\" width=\"100%\" height=\"100%\" />";
             $mail->IsHTML(true);
             $mail->Send();
 
