@@ -241,7 +241,7 @@ function selectPendienteGestor()
                   let contenedorError = document.getElementById("mensaje");
                   contenedorError.innerHTML='';
                                                   
-                  //console.log(data);
+                  console.log(data);
                   if (Object.keys(data).length>0) {
 
                       cargaDatosPantalla(data);
@@ -313,6 +313,10 @@ function cargaDatosPantalla(data)
       let createATextMonto = document.createTextNode(obj.solicitud_cantidad_carta + obj.solicitud_cantidad_oficio);
       colMonto.appendChild(createATextMonto);
      
+      let colAceptar = document.createElement('div');
+      colAceptar.id = "aceptar";
+      colAceptar.className = "col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1";
+
       fila.appendChild(colNombre);
       fila.appendChild(colCantidad);
       fila.appendChild(colMonto);
