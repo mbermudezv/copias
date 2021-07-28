@@ -241,7 +241,7 @@ function selectPendienteGestor()
                   let contenedorError = document.getElementById("mensaje");
                   contenedorError.innerHTML='';
                                                   
-                  console.log(data);
+                  //console.log(data);
                   if (Object.keys(data).length>0) {
 
                       cargaDatosPantalla(data);
@@ -297,20 +297,23 @@ function cargaDatosPantalla(data)
       
       let colNombre = document.createElement('div');
       colNombre.id = "profesor";
-      colNombre.className = "col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3";
+      colNombre.className = "col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3";
       let createATextNombre = document.createTextNode(obj.profesor);
       colNombre.appendChild(createATextNombre);
 
       let colCantidad = document.createElement('div');
       colCantidad.id = "cantidad";
-      colCantidad.className = "col-1 col-sm-2 col-md-2 col-lg-1 col-xl-1";
-      let createATextCantidad = document.createTextNode(obj.solicitud_cantidad_carta + obj.solicitud_cantidad_oficio);
+      colCantidad.className = "col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1";
+      
+      let total = Number(obj.solicitud_cantidad_carta) + Number(obj.solicitud_cantidad_oficio);
+
+      let createATextCantidad = document.createTextNode(Number(total).toLocaleString('en'));
       colCantidad.appendChild(createATextCantidad);
 
       let colMonto = document.createElement('div');
-      colMonto.id = "cantidad";
-      colMonto.className = "col-1 col-sm-2 col-md-2 col-lg-1 col-xl-1";
-      let createATextMonto = document.createTextNode(obj.solicitud_cantidad_carta + obj.solicitud_cantidad_oficio);
+      colMonto.id = "monto";
+      colMonto.className = "col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1";
+      let createATextMonto = document.createTextNode(Number(obj.solicitud_monto).toLocaleString('en'));
       colMonto.appendChild(createATextMonto);
      
       let colAceptar = document.createElement('div');

@@ -15,6 +15,20 @@ window.onload = function()
         nombre.innerText =  jsonData[0]["profesor_nombre"] + " " + 
                             jsonData[0]["profesor_primer_apellido"] + " " + 
                             jsonData[0]["profesor_segundo_apellido"];
+        
+        let pendiente = document.getElementById("pendiente");
+
+        //console.log(jsonData);
+
+        if (jsonData[0]["admin"]!=="1") {         
+
+          pendiente.href = "javascript:void(0)";
+
+        } else {
+
+          pendiente.href = "../vistas/pendiente.html";
+
+        }
                 
     }
     
