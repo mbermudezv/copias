@@ -44,21 +44,21 @@ a:active {
   text-decoration: underline;
 }
 
-.item {
-  font-weight: bold;
-  font-family: "Courier New", Courier, monospace;
-  border-radius: 5px;
-  border-style: groove;
-  border-bottom: 0.5vw solid #707070;
-}
-
 #tituloMarca {
   font-family: "Lucida Console", Monaco, monospace;
   font-weight: bold;
 }
 
-#statusBar {
+#nombre {
   font-family: "Lucida Console", Monaco, monospace;
+  font-weight: bold;
+  font-size: larger;
+}
+
+#atras {
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
 }
 
 #linkHogar, #linkWappcom {
@@ -110,4 +110,4 @@ a:active {
   #statusBar {
     font-size: 1.5rem;
   }
-}/*# sourceMappingURL=css_index.css.map */
+}/*# sourceMappingURL=css_pendiente.css.map */
